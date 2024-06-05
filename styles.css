@@ -1,0 +1,245 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Define CSS Variables for Colors and Gradients */
+:root {
+    --primary-color: #ff5733; /* Primary Red Color */
+    --secondary-color: #ffcc00; /* Bright Yellow Color */
+    --gradient-start: #ff5733; /* Gradient Start Color */
+    --gradient-end: #ffcc00; /* Gradient End Color */
+    --background-color: #f4f4f9;
+    --text-color: #333;
+    --header-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    --button-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+h3, h4{
+    color: #555;
+}
+
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header and Navigation */
+header {
+    background: var(--header-gradient);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    letter-spacing: 1.5px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 3px;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.letter-section h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 2em;
+}
+
+#letter {
+    width: calc(100% - 30px); /* Adjust to line up with padding */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    font-size: 1em;
+    margin-top: 20px;
+    line-height: 1.4;
+}
+
+.options {
+    margin: 20px 0;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Style for the date input field */
+input[type="date"] {
+    width: calc(100% - 30px); /* Adjust to line up with padding */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+button {
+    background: var(--button-gradient);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: var(--button-gradient);
+    transform: scale(1.05);
+}
+
+/* Flow Chart Section */
+.flow-chart {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flow-chart h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.chart-circle {
+    width: 50px;
+    height: 50px;
+    background: var(--button-gradient);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.chart-arrow {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin: 0 10px;
+}
+
+.chart-item p {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Adjust for Vertical Layout */
+@media (max-width: 600px) {
+    .chart-container {
+        flex-direction: column;
+    }
+
+    .chart-arrow {
+        display: none;
+    }
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}

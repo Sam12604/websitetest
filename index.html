@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Letter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <script>
+        function onloaded(){
+
+            // Get today's date
+            let d = new Date();
+
+            // Format today's date as YYYY-MM-DD for min date
+            let datestring = d.getFullYear().toString().padStart(4, '0') + '-' + 
+                            (d.getMonth() + 1).toString().padStart(2, '0') + '-' + 
+                            d.getDate().toString().padStart(2, '0');
+
+            // Create a new date object for one year from now
+            let maxDate = new Date();
+            maxDate.setFullYear(maxDate.getFullYear() + 1);
+
+            // Format the max date as YYYY-MM-DD
+            let maxDatestring = maxDate.getFullYear().toString().padStart(4, '0') + '-' + 
+                                (maxDate.getMonth() + 1).toString().padStart(2, '0') + '-' + 
+                                maxDate.getDate().toString().padStart(2, '0');
+
+            // Set the min and max attributes of the date input
+            document.getElementById('delivery-date').setAttribute('value', datestring);
+            document.getElementById('delivery-date').setAttribute('min', datestring);
+            document.getElementById('delivery-date').setAttribute('max', maxDatestring);
+
+            const stripe = Stripe('pk_test_51PMyuXLyIw0vUJHklCV2Oc7VqfapAu9Qd2eohVgh9i9ESUoWfGuCuUVrkZwsbs2IvnXDUPM6q2JTIu1y5SFjdUim00nIQkeYNu', {
+            apiVersion: "2024-04-10",
+        });
+
+        const paymentRequest = stripe.paymentRequest({
+            country: 'GB',
+            currency: 'gbp',
+            total: {
+                label: 'Demo total',
+                amount: 10,
+            },
+            requestPayerName: true,
+            requestPayerEmail: true,
+        });
+
+        const elements = stripe.elements();
+        const prButton = elements.create('paymentRequestButton', {
+        paymentRequest,
+        });
+
+        (async () => {
+        // Check the availability of the Payment Request API first.
+        const result = await paymentRequest.canMakePayment();
+        if (result) {
+            prButton.mount('#payment-request-button');
+        } else {
+            document.getElementById('payment-request-button').style.display = 'none';
+        }
+        })();
+        }
+    </script>
+</head>
+<body onload="onloaded()">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#compose" class="compose-button">compose</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="mailto:inbox@futureletters.co.uk">contact</a></li>
+            </ul>
+        </nav>
+        <h1>Future Letters</h1>
+    </header>
+
+    <main>
+        <section id="compose" class="letter-section">
+            <h2>Write a Physical Letter to Your Future Self</h2>
+            <textarea id="letter" rows="10" placeholder="Write your letter here..."></textarea>
+            <div class="options">
+                <label for="delivery-date">Select Delivery Date:</label>
+                <input type="date" id="delivery-date" name="delivery-date" max="2025-05-21">
+            </div>
+<div id="payment-request-button">
+  <!-- A Stripe Element will be inserted here. -->
+</div>
+            <button type="submit">Send Letter</button>
+            <h4>to pay £3.99, includes postage<br>shipping to UK only</h4>
+        </section>        
+    </main>
+
+    <section id="about" class="flow-chart">
+        <h2>How It Works</h2>
+        <div class="chart-container">
+            <div class="chart-item">
+                <div class="chart-circle">1</div>
+                <p>Write your letter</p>
+            </div>
+            <div class="chart-arrow">&#10132;</div>
+            <div class="chart-item">
+                <div class="chart-circle">2</div>
+                <p>Choose delivery time</p>
+            </div>
+            <div class="chart-arrow">&#10132;</div>
+            <div class="chart-item">
+                <div class="chart-circle">3</div>
+                <p>We store your letter</p>
+            </div>
+            <div class="chart-arrow">&#10132;</div>
+            <div class="chart-item">
+                <div class="chart-circle">4</div>
+                <p>Letter delivered to your future self</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="flow-chart">
+        <h2>Get Inspiration</h2>
+        <h3>See what others had to say to their future selves!</h3>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; DelayedDelivery.co.uk 2024. All rights reserved.</p>
+        <p>Terms and Conditions</p>
+    </footer>
+</body>
+</html>
