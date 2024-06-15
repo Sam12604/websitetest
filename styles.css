@@ -36,6 +36,8 @@ body {
 /* Header and Navigation */
 header {
     background: var(--header-gradient);
+    background-image: url(bg.jpg);
+    background-size: cover;
     color: #fff;
     padding: 20px 0;
     text-align: center;
