@@ -41,7 +41,7 @@
             currency: 'gbp',
             total: {
                 label: 'Demo total',
-                amount: 3.99,
+                amount: 399,
             },
             requestPayerName: true,
             requestPayerEmail: true,
@@ -79,7 +79,15 @@
     <main>
         <section id="compose" class="letter-section">
             <h2>Write a Physical Letter to Your Future Self</h2>
-            <textarea id="letter" rows="10" placeholder="Write your letter here..."></textarea>
+            <div class="options">
+                <label for="subject">Letter Subject:</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+            <div class="options">
+            <label for="letter">Write your letter:</label>
+            <textarea id="letter" name="letter" rows="10" placeholder="Write your letter here..."></textarea>
+            <h4>Max 2200 Characters</h4>
+            </div>
             <div class="options">
                 <label for="delivery-date">Select Delivery Date:</label>
                 <input type="date" id="delivery-date" name="delivery-date" max="2025-05-21">
