@@ -3,11 +3,13 @@
 
 /* Define CSS Variables for Colors and Gradients */
 :root {
-    --primary-color: #ff5733; /* Primary Red Color */
+    --old-primary-color: #ff5733; /* Primary Red Color */
+    --primary-color: #f01c34; /* Primary Red Color */
     --secondary-color: #ffcc00; /* Bright Yellow Color */
-    --gradient-start: #ff5733; /* Gradient Start Color */
+    --gradient-start: #f01c34; /* Gradient Start Color */
     --gradient-end: #ffcc00; /* Gradient End Color */
-    --background-color: #f4f4f9;
+    --old-background-color: #f4f4f9;
+    --background-color: #ece5d9;
     --text-color: #333;
     --header-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     --button-gradient: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
@@ -19,7 +21,10 @@ html {
 
 
 h3, h4{
-    color: #555;
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: small;
+    color: #5555559e;
 }
 
 /* General Styles */
@@ -87,7 +92,7 @@ main {
     margin: 20px auto;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
     text-align: center;
 }
 
@@ -104,6 +109,7 @@ main {
     border-radius: 8px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     resize: vertical;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     line-height: 1.4;
 }
@@ -127,6 +133,7 @@ input/*[type="date"]*/ {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -145,7 +152,7 @@ select {
 }
 
 button {
-    background: var(--button-gradient);
+    background: var(--primary-color);
     color: #fff;
     border: none;
     padding: 15px 30px;
@@ -158,7 +165,7 @@ button {
 }
 
 button:hover {
-    background: var(--button-gradient);
+    background: var(--primary-color);
     transform: scale(1.05);
 }
 
@@ -169,7 +176,7 @@ button:hover {
     margin: 20px auto;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
     text-align: center;
 }
 
@@ -196,7 +203,7 @@ button:hover {
 .chart-circle {
     width: 50px;
     height: 50px;
-    background: var(--button-gradient);
+    background: var(--primary-color);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -220,7 +227,7 @@ button:hover {
 }
 
 /* Adjust for Vertical Layout */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .chart-container {
         flex-direction: column;
     }
@@ -228,6 +235,53 @@ button:hover {
     .chart-arrow {
         display: none;
     }
+}
+
+.letter-carousel {
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.letter-carousel h2 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.letter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.letter-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    width: 80%;
+    max-width: 300px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.letter-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+.letter-card p {
+    color: #555;
+    font-size: 1em;
+}
+
+.letter-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -243,4 +297,14 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9em;
+}
+
+footer .payment-prov{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .payment-prov img{
+    height: 22px;
 }

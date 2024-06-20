@@ -9,7 +9,6 @@
 
     <script>
         function onloaded(){
-
             // Get today's date
             let d = new Date();
 
@@ -80,13 +79,17 @@
         <section id="compose" class="letter-section">
             <h2>Write a Physical Letter to Your Future Self</h2>
             <div class="options">
+                <label for="subject">Address your letter:</label>
+                <input type="text" id="subject" name="subject" placeholder="Dear me in the future...">
+            </div>
+            <div class="options">
                 <label for="subject">Letter Subject:</label>
-                <input type="text" id="subject" name="subject">
+                <input type="text" id="subject" name="subject" placeholder="Write your letter here...">
             </div>
             <div class="options">
             <label for="letter">Write your letter:</label>
-            <textarea id="letter" name="letter" rows="10" placeholder="Write your letter here..."></textarea>
-            <h4>Max 2200 Characters</h4>
+            <textarea id="letter" name="letter" rows="10" maxlength="3000" placeholder="Write your letter here..."></textarea>
+            <h4>Max 3,000 Characters</h4>
             </div>
             <div class="options">
                 <label for="delivery-date">Select Delivery Date:</label>
@@ -125,15 +128,38 @@
         </div>
     </section>
 
-    <section id="about" class="flow-chart">
+    <section class="letter-carousel">
         <h2>Get Inspiration</h2>
         <h3>See what others had to say to their future selves!</h3>
+        <div class="letter-grid">
+            <!-- Repeat this block for each letter -->
+            <div class="letter-card" onclick="alert('test')">
+                <h3>Letter Title 1</h3>
+                <p>Excerpt of the letter...</p>
+            </div>
+            <div class="letter-card" onclick="showLetter('Letter Content 2')">
+                <h3>Letter Title 2</h3>
+                <p>Excerpt of the letter...</p>
+            </div>
+            <div class="letter-card" onclick="showLetter('Letter Content 3')">
+                <h3>Letter Title 3</h3>
+                <p>Excerpt of the letter...</p>
+            </div>
+            <!-- Add more letter cards as needed -->
         </div>
     </section>
 
     <footer>
-        <p>&copy; DelayedDelivery.co.uk 2024. All rights reserved.</p>
+        <p>&copy; FutureLetters.co.uk 2024. All rights reserved.</p>
         <p>Terms and Conditions</p>
+        <div class="payment-prov">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/mastercard.svg">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/visa.svg">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/american-express.svg">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/wallets/apple-pay.svg">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/wallets/google-pay.svg">
+            <img src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/apm/paypal.svg">
+        </div>
     </footer>
 </body>
 </html>
